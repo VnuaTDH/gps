@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Thiết Bị - Báo Cáo Thực Hành</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap">
+      <link rel="stylesheet" href="./styles/thietbi.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <img src="./images/hvnn.png" alt="Logo Học Viện Nông Nghiệp Việt Nam" />
+      </div>
+      <div class="header-title">
+        <h1>GPS Nhóm 2</h1>
+      </div>
+      <nav class="main-menu">
+        <div
+          class="menu-toggle"
+          onclick="toggleMenu()"
+          aria-label="Mở menu điều hướng"
+        >
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="map.html">Bản Đồ</a></li>
+          <li><a href="device.html">Thiết Bị</a></li>
+          <li><a href="lienhe.html">Liên Hệ</a></li>
+        </ul>
+      </nav>
+      <button class="mode-toggle" aria-label="Chuyển chế độ tối/sáng">
+        <i class="fas fa-sun"></i>
+      </button>
+      <div class="controls">
+        <div class="controls-toggle" onclick="toggleControls()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="controls-menu">
+          <button class="btn-back-to-top" id="backToTop">↑</button>
+          <a href="#chuong1">Chương 1</a>
+          <a href="#chuong2">Chương 2</a>
+          <a href="#chuong3">Chương 3</a>
+          <a href="#ketluan">Kết Luận</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Tiêu đề báo cáo -->
+      <section id="tieu-de">
+        <h2 style="text-align: center">HỌC VIỆN NÔNG NGHIỆP VIỆT NAM</h2>
+        <h3 style="text-align: center">KHOA CƠ ĐIỆN</h3>
+        <hr style="width: 100%; margin: 10px auto" />
+        <h1 style="text-align: center">BÁO CÁO THỰC HÀNH</h1>
+        <h2 style="text-align: center">VI ĐIỀU KHIỂN</h2>
+        <p>
+          <strong>Đề Tài:</strong> Xây Dựng Hệ Thống Định Vị GPS Trên Xe Máy
+        </p>
+        <p><strong>Giảng viên hướng dẫn:</strong> Nguyễn Thái Học</p>
+        <p><strong>Nhóm thực hiện:</strong> 02</p>
+        <p><strong>Lớp:</strong> K67CNCDTA</p>
+      </section>
+      <!-- Chương 1 -->
+      <section id="chuong1">
+        <h2>Chương 1: Tổng Quan Hệ Thống Định Vị GPS</h2>
+        <div class="product">
+          <h3>1.1. Giới thiệu về hệ thống định vị toàn cầu</h3>
+          <figure>
+            <img src="images/hinh1,1.jpg" alt="Hình 1.1" />
+            <figcaption>Hình 1.1. GPS Block II-F, một trong số các vệ tinh thuộc hệ thống GPS bay trên quỹ đạo Trái đất.(2)</figcaption>
+          </figure>
+          <h4>1.1.1. GPS là gì</h4>
+          <p>
+            GPS (tiếng Anh: Global Positioning System; tạm dịch: Hệ thống Định
+            vị Toàn cầu) là hệ thống xác định vị trí dựa trên vị trí của các vệ
+            tinh nhân tạo, do Bộ Quốc phòng Hoa Kỳ thiết kế, xây dựng, vận hành
+            và quản lý. Hệ thống GPS được vận hành bởi Không lực Hoa Kỳ và do Bộ
+            Quốc phòng Hoa Kỳ quản lý, ban đầu được dùng trong mục đích quân sự
+            nhưng sau những năm 1980 chính phủ Hoa Kỳ cho phép sử dụng GPS vào
+            mục đích dân sự ở phạm vi toàn cầu, hệ quả của vụ sự cố Chuyến bay
+            007 của Korean Air Lines làm chết 269 người.
+          </p>
+          <h4>1.1.2. Lịch Sử</h4>
+          <p>
+            Ban đầu, GPS được phát triển cho mục đích quân sự, nhưng sự cố
+            Chuyến bay 007 của Korean Air Lines bị bắn rơi vào năm 1983 sau khi
+            đi lạc vào vùng trời bị cấm của Liên Xô làm chết 269 người thì mới
+            được tổng thống Ronald Reagan cho phép dùng trong mục đích dân sự
+            sau những năm 1980. Nhưng lo ngại về vấn đề an ninh nên khi được đưa
+            vào dân sự chính phủ Mỹ đã cố ý làm giảm độ chính xác của hệ thống
+            định vị nên ban đầu chúng không thỏa mãn được những yêu cầu an toàn
+            của hàng không dân sự và hàng hải tại thời điểm đó. Phải đến vào
+            ngày 1 tháng 5 năm 2000 Tổng thống Bill Clinton mới ký chỉ thị giúp
+            cho hệ thống định vị dân sự có độ chính xác tương tự như cung cấp
+            cho mục đích quân sự. GPS hoạt động trong mọi điều kiện thời tiết,
+            mọi nơi trên Trái Đất, 24 giờ một ngày. Không mất phí thuê bao hoặc
+            mất tiền trả cho việc thiết lập sử dụng GPS chỉ cần có thiết bị thu
+            tín hiệu và phần mềm nhúng hỗ trợ.(8) Hiện tại GPS là Hệ thống Định
+            vị bằng Vệ tinh được sử dụng nhiều nhất trên thế giới nhưng ngoài
+            GPS còn có GLONASS của Nga và mới nhất là Galileo của Liên minh châu
+            Âu có tính năng tương tự và độ chính xác tương đương với GPS của Hoa
+            Kỳ.
+          </p>
+          <h4>1.1.3. Nguyên Lý Hoạt Động Của GPS</h4>
+          <p>
+            Nguyên lý hoạt động cốt lõi của GPS cũng giống như các Hệ thống Định
+            vị bằng Vệ tinh khác là khi xét trong cùng một thời điểm và xác định
+            được khoảng cách từ điểm đó đến ít nhất ba vệ tinh thì tọa độ của
+            điểm đó trên mặt đất sẽ được xác định. Các hệ thống dẫn đường truyền
+            thống hoạt động dựa trên các trạm phát tín hiệu vô tuyến điện. Được
+            biết đến nhiều nhất là các hệ thống sau: LORAN – (LOng RAnge
+            Navigation) – hoạt động ở giải tần 90-100 kHz chủ yếu dùng cho hàng
+            hải, hay TACAN – (TACtical Air Navigation) – dùng cho quân đội Mỹ và
+            biến thể với độ chính xác thấp VOR/DME – VHF (Omnidirectional
+            Range/Distance Measuring Equipment) dùng cho hàng không dân dụng
+            trước những năm 2000. Các vệ tinh GPS bay vòng quanh Trái Đất hai
+            lần trong một ngày theo một quỹ đạo rất chính xác và phát tín hiệu
+            có thông tin xuống Trái Đất. Các máy thu GPS nhận thông tin này và
+            bằng phép tính lượng giác tính được chính xác vị trí của người dùng.
+            Về bản chất máy thu GPS so sánh thời gian tín hiệu được phát đi từ
+            vệ tinh với thời gian nhận được chúng. Sai lệch về thời gian cho
+            biết máy thu GPS ở cách vệ tinh bao xa. Rồi với nhiều quãng cách đo
+            được tới nhiều vệ tinh máy thu có thể tính được vị trí của người
+            dùng và hiển thị lên bản đồ điện tử của máy. Máy thu phải nhận được
+            tín hiệu của ít nhất ba vệ tinh để tính ra vị trí hai chiều (kinh độ
+            và vĩ độ) và để theo dõi được chuyển động. Khi nhận được tín hiệu
+            của ít nhất 4 vệ tinh thì máy thu có thể tính được vị trí ba chiều
+            (kinh độ, vĩ độ và độ cao). Một khi vị trí người dùng đã tính được
+            thì máy thu GPS có thể tính các thông tin khác, như tốc độ, hướng
+            chuyển động, bám sát di chuyển, khoảng hành trình, quãng cách tới
+            điểm đến, thời gian Mặt Trời mọc, lặn và nhiều thứ khác nữa.
+          </p>
+          <h4>1.1.4. Độ Chính Xác Của GPS</h4>
+          <p>
+            Các máy thu GPS ngày nay cực kì chính xác, nhờ vào thiết kế nhiều
+            kênh hoạt động song song của chúng. Các máy thu 12 kênh song song
+            (của Garmin) nhanh chóng khóa vào các quả vệ tinh khi mới bật lên và
+            chúng duy trì kết nối bền vững, thậm chí trong tán lá rậm rạp hoặc
+            thành phố với các toà nhà cao tầng. Trạng thái của khí quyển và các
+            nguồn gây sai số khác có thể ảnh hưởng tới độ chính xác của máy thu
+            GPS. Các máy thu GPS có độ chính xác trung bình trong vòng 15 mét.
+            Các máy thu mới hơn với khả năng WAAS (Wide Area Augmentation
+            System) có thể tăng độ chính xác trung bình tới dưới 3 mét. Không
+            cần thêm thiết bị hay mất phí để có được lợi điểm của WAAS. Người
+            dùng cũng có thể có độ chính xác tốt hơn với GPS vi sai
+            (Differential GPS, DGPS) sửa lỗi các tín hiệu GPS để có độ chính xác
+            trong khoảng 3 đến 5 mét. Cục Phòng vệ Bờ biển Mỹ vận hành dịch vụ
+            sửa lỗi này. Hệ thống bao gồm một mạng các đài thu tín hiệu GPS và
+            phát tín hiệu đã sửa lỗi bằng các máy phát hiệu. Để thu được tín
+            hiệu đã sửa lỗi, người dùng phải có máy thu tín hiệu vi sai bao gồm
+            cả ăn-ten để dùng với máy thu GPS của họ.
+          </p>
+          <h4>1.1.5. Các Thành Phần Của GPS</h4>
+          <p>
+            GPS hiện tại gồm 3 phần chính: phần không gian, kiểm soát và sử
+            dụng.(3) Không quân Hoa Kỳ phát triển, bảo trì và vận hành các phần
+            không gian và kiểm soát. Các vệ tinh GPS truyền tín hiệu từ không
+            gian, và các máy thu GPS sử dụng các tín hiệu này để tính toán vị
+            trí trong không gian 3 chiều (kinh độ, vĩ độ và độ cao) và thời gian
+            hiện tại.(4)
+          </p>
+          <h3>1.2. Tổng Quan Về Hệ Thống Định Vị Xe Máy</h3>
+          <figure>
+            <img src="images/hinh1,2.png" alt="Hình 1.2" />
+            <figcaption>
+              Hình 1.2. Giao diện người dùng của hệ thống GPS xe máy
+            </figcaption>
+          </figure>
+          <h4>1.2.1. Giới Thiệu</h4>
+          <p>
+            Ngày nay, định vị, dẫn đường và giám sát vị trí đã trở thành một nhu
+            cầu phổ biến và là một trong những đòi hỏi bắt buộc đối với nhiều
+            hoạt động kinh tế-xã hội, tìm kiếm cứu hộ, cứu nạn, ứng phó sự
+            cố,...Liên quan đến vấn đề này, hiện nay, có nhiều giải pháp đã được
+            các cơ quan, tổ chức trong nước và nước ngoài phát triển và cung cấp
+            thông qua các dịch vụ, phần mềm sửdụng dữ liệu trực tuyến trên mạng
+            Internet cũng như các phần mềm sử dụng dữ liệu ngoại tuyến như: Dịch
+            vụ định vị, dẫn đường của hãng Google, Microsoft,... dựa trên nền
+            bản đồ, vệ tinh, các dữ liệu địa lý; các phần mềm định vị, dẫn đường
+            ngoại tuyến của hãng Navitel, Garmin,...; các hệ thống giám sát
+            phương tiện của Vietmap, VCOMSAT,... Các giải pháp phần mềm có thể
+            cài đặt trên nhiều loại thiết bị khác nhau (máy tính, điện thoại di
+            động, các thiết bị chuyên dụng....) và hỗ trợ nhiều hệ điều hành
+            (Windows, Windows Phone, Android, iOS,...) với các tính năng cần
+            thiết cho dẫn đường như: dẫn đường GPS qua từng khúc ngoặt bằng
+            giọng nói; hỗ trợ chuyển làn và cảnh báo trước biển báo; thông báo
+            chỗ rẽ tiếp theo; tạo và lưu lộ trình; hiển thị 3D; tìm kiếm vị trí,
+            địa điểm.....Tuy nhiên, việc sử dụng các phần mềm này bắt buộc phải
+            sử dụng các định dạng dữ liệu theo tiêu chuẩn của hãng và không cho
+            phép người dùng tùy biến theo mục đích sử dụng. Theo đó, không thể
+            tự chủ được trong việc sử dụng dữ liệu, công nghệ nên không thể phát
+            huy được các nguồn lực sẵn có. Đồng thời, dẫn đến những hạn chế về
+            khả năng bảo mật dữ liệu và tính sẵn sàng hệ thống do các phần mềm
+            trực tuyến phụ thuộc nhà cung cấp dịch vụ, các phần mềm ngoại tuyến
+            đòi hỏi cập nhật tính năng và dữ liệu từ nhà sản xuất. Xuất phát từ
+            thực tiễn nêu trên, để tự chủ trong lựa chọn giải pháp và xây dựng
+            phần mềm giải quyết một số bài toán mang tính chất đặc thù và đặc
+            biệt là tự chủ trong sử dụng, bảo mật dữ liệu theo những định dạng
+            riêng, thiết kế, bổ sung các chức năng theo nhu cầu, nhóm đã tiến
+            hành nghiên cứu, thiết kế và xây dựng Hệ thống định vị xe máy.(9)
+          </p>
+          <h4>1.2.2. Mục đích sử dụng</h4>
+          <p>
+            Xác định vị trí và theo dõi lộ trình: Thiết bị theo dõi hỗ trợ người
+            dùng xác định chính xác vị trí của phương tiện, hàng hóa hoặc con
+            người, từ đó theo dõi lộ trình di chuyển. Đây là tính năng quan
+            trọng trong lĩnh vực vận tải, giúp quản lý chuyến hàng và xe cộ một
+            cách hiệu quả. Định hướng và chỉ đường: GPS cung cấp tính năng định
+            hướng, giúp người dùng dễ dàng tìm đường di chuyển tối ưu, đặc biệt
+            hữu ích cho người lái xe hoặc người đi bộ trong các khu vực phức
+            tạp. Giám sát và quản lý tài sản: Thiết bị định vị giúp theo dõi và
+            bảo vệ tài sản, bao gồm phương tiện và hàng hóa, thông qua việc cập
+            nhật liên tục về tình trạng và vị trí. Công cụ bảo đảm an toàn: Giúp
+            người chủ phương tiện giám sát người thân mọi lúc mọi nơi Công tác
+            cứu hộ và an ninh: GPS đóng vai trò quan trọng trong việc cứu hộ
+            khẩn cấp, hỗ trợ xác định vị trí nạn nhân một cách nhanh chóng và
+            chính xác, đồng thời giúp theo dõi các hành vi vi phạm pháp luật.
+          </p>
+          <h4>1.2.3. Ứng dụng</h4>
+          <figure>
+            <img src="images/hinh1,3.jpg" alt="Hình 1.3" />
+            <figcaption>
+              Hình 1.3. Ứng dụng của hệ thống định vị xe máy
+            </figcaption>
+          </figure>
+          <p>
+            Quản lý và điều hành xe: Hệ thống định vị GPS có thể giám sát quản lý vận tải, theo dõi vị trí, tốc độ, hướng di chuyển,… giám sát mại vụ, giám sát vận tải hành khách, chống trộm cho ứng dụng thuê xe tự lái, theo dõi lộ trình của đoàn xe và liên lạc, theo dõi định vị cho các ứng dụng giao hàng. GPS có nhiều ứng dụng mạnh mẽ trong quản lý xe máy với nhiều tính năng như:
+            <ul>
+              <li>
+                Giám sát lộ trình đường đi của phương tiện theo thời gian thực: vận tốc, hướng di chuyển và trạng thái tắt/mở máy, quá tốc độ của xe…
+                  <li>Xác định vị trí xe chính xác ở từng góc đường (vị trí xe được thể hiện nhấp nháy trên bản đồ), xác định vận tốc và thời gian xe dừng hay đang chạy, biết được lộ trình hiện tại xe đang đi (real time).</li>
+                  <li>Lưu trữ lộ trình từng xe và hiển thị lại lộ trình của từng xe trên cùng một màn hình.
+                  <li>Xem lại lộ trình xe theo thời gian và vận tốc tùy chọn.</li>
+                  <li>Quản lý theo dõi một hay nhiều xe tại mỗi thời điểm.</li>
+                  <li>Cảnh báo khi xe vượt quá tốc độ, vượt ra khỏi vùng giới hạn.</li>
+                  <li>Chức năng chống trộm.</li>
+              </li>
+            </ul>
+          </p>
+          <h4>1.2.4. Thông số kĩ thuật</h4>
+          <p>
+            - Điện áp cung cấp: 3,3V – 5V DC:Đây là mức điện áp mà mô-đun GPS có
+            thể hoạt động. Nó có thể nhận nguồn từ 3.3V đến 5V DC (dòng điện một
+            chiều).
+          </p>
+          <p>- Điều này giúp nó linh hoạt hơn khi sử dụng với các vi điều khiển như Arduino (5V) hoặc ESP8266, ESP32 (3.3V).</p>
+          <p>- Dòng điện hoạt động: 45mA:Khi hoạt động bình thường, mô-đun tiêu thụ khoảng 45mA.Đây là mức tiêu thụ điện năng khá thấp, phù hợp với các thiết bị IoT và hệ thống nhúng.</p>
+          <p>- Tốc độ truyền: 9600 (có thể cấu hình từ 4800 đến 115200).Đây là baud rate (tốc độ truyền dữ liệu) mặc định là 9600 bps (bits per second).Có thể thay đổi tốc độ này từ 4800 bps đến 115200 bps để phù hợp với hệ thống vi điều khiển hoặc máy tính nhận dữ liệu từ GPS.Baud rate cao hơn giúp truyền dữ liệu nhanh hơn nhưng dễ gây lỗi nếu hệ thống không xử lý kịp.</p>
+          <p>- Tốc độ cập nhật điều hướng: tối đa 5Hz (1Hz theo mặc định).Tốc độ cập nhật (Update Rate) là số lần mô-đun GPS tính toán vị trí và gửi dữ liệu mỗi giây.Mặc định 1Hz (cập nhật vị trí 1 lần/giây).Có thể tăng lên 5Hz (cập nhật 5 lần/giây), giúp lấy vị trí nhanh hơn, phù hợp với các ứng dụng di chuyển nhanh (xe cộ, drone...).</p>
+          <p>- Thời gian khởi động:27 giây (tối ưu nhất - khi GPS mới khởi động lần đầu hoặc sau một thời gian dài không hoạt động).Khởi động nóng (hot start) - 1 giây: Khi GPS đã có dữ liệu vệ tinh gần đây, nó có thể xác định vị trí rất nhanh (chỉ mất 1 giây).</p>
+          <p>- Phạm vi nhiệt độ hoạt động: -40 đến +85°C.Đây là khoảng nhiệt độ mà mô-đun GPS có thể hoạt động ổn định.Với mức -40°C đến +85°C, mô-đun có thể dùng trong nhiều môi trường khắc nghiệt như thời tiết lạnh giá hoặc nóng bức.</p>
+          <p>- Ăng-ten GPS riêng biệt 18 x 18 mm:GPS đi kèm một ăng-ten riêng có kích thước 18mm x 18mm, giúp tăng cường khả năng thu sóng vệ tinh.Một số mô-đun GPS có ăng-ten gắn sẵn, nhưng loại có ăng-ten rời thường có tín hiệu tốt hơn.</p>
+          <h4>1.2.5. Công nghệ</h4>
+          <h5>1.2.5.1: Công Nghệ IOT</h5>
+          <figure>
+            <img src="images/hinh1,4.jpg" alt="Hình 1.4" />
+            <figcaption>Hình 1.4. Công Nghệ IOT</figcaption>
+          </figure>
+          <p>
+            Trong Hệ Thống Định Vị Nhóm Em có sử Dụng Công Nghệ IOT Vậy:<br />
+            IOT là gì?(7)<br />
+            Mạng lưới Vạn vật kết nối Internet (tiếng Anh: Internet of Things, viết tắt IoT) là một liên mạng, trong đó, các thiết bị: có thể là phương tiện giao thông như xe máy, hoặc có thể là bất kỳ đối tượng nào đó có khả năng kết nối mạng máy tính giúp cho các thiết bị này có thể thu thập và truyền tải dữ liệu. Chính vì lẽ, đó IoT đã và đang được ứng dụng rộng rãi trong nhiều lĩnh vực như trong sản xuất công nghiệp,.. (5,6)<br />
+            <strong>Đặc điểm chính của công nghệ IOT</strong>
+            <ul>
+              <li>
+                Vị trí của các đối tượng: GPS sử dụng chòm sao vệ tinh quân sự độc quyền của mình để cung cấp dữ liệu định vị cho các vật thể có độ chính xác cao. Điều này được thực hiện bởi một quá trình gọi là trilateration (phép chia 3 chiều), liên quan đến đối tượng mục tiêu hoặc thiết bị giao tiếp không dây với ít nhất ba vệ tinh nhìn thấy được có thể cung cấp dữ liệu sau đó được sử dụng để tính toán tọa độ chính xác của đối tượng.
+              </li>
+              <li>
+                Tính toán tốc độ: Khả năng này của GPS phụ thuộc vào việc truyền tín hiệu vệ tinh liên tục khi các vệ tinh GPS thực hiện quỹ đạo 12 giờ thường lệ quanh trái đất. Chuyển động của vật thể hoặc thiết bị mục tiêu so với vị trí vệ tinh có thể được sử dụng để tính vận tốc bằng phương trình truyền thống.
+              </li>
+              <li>
+                Đảm bảo độ chính xác: Chức năng của vệ tinh GPS được củng cố bởi đồng hồ nguyên tử mạnh mẽ được sử dụng trong quá trình xử lý dữ liệu quan trọng đối với hiệu suất chính xác của hệ thống. Những đồng hồ nhúng đồng bộ và ổn định này được hiệu chỉnh hàng ngày để đảm bảo tính chính xác cần thiết để GPS hoạt động bình thường.
+              </li>
+              <li>
+                Hướng: Dữ liệu lịch thiên văn do vệ tinh GPS phát hành có thể được sử dụng để tính toán hướng và hướng của các vật thể so với vị trí quỹ đạo của vệ tinh.
+              </li>
+            </ul>
+          </p>
+          <p>
+            Các công nghệ không dây được IoT sử dụng không chỉ cung cấp các
+            phương thức truyền dữ liệu chính xác và hiệu quả cần thiết giữa các
+            thiết bị, nhưng bản thân chúng cũng có những tính năng có thể mở
+            rộng phạm vi những gì có thể đạt được nhờ các thiết bị mà chúng phục
+            vụ. Một ví dụ quan trọng về điều này là Hệ thống định vị toàn cầu,
+            một hệ thống định vị vô tuyến dựa trên vệ tinh do Chính phủ Hoa Kỳ
+            tạo ra và sở hữu và có sẵn cho mục đích quân sự, dân sự và thương
+            mại trên toàn thế giới.
+          </p>
+          <h5>1.2.5.2. Công Nghệ Thông Tin</h5>
+          <p> <strong>1 GitHub Pages </strong>
+          <figure>
+            <img src="images/hinh1,5.jpg" alt="Hình 1.5" />
+            <figcaption>Hình 1.5. Công Nghệ GitHubPage</figcaption>
+          </figure>
+          GitHub là một trong những công cụ phổ biến nhất mà các công ty và cá nhân sử dụng để lưu trữ và kiểm soát phiên bản mã nguồn kho. Nền tảng chạy bằng cách sử dụng Git phần mềm, giúp theo dõi các thay đổi mã và hợp lý hóa sự hợp tác phát triển. GitHub đã không ngừng cải tiến nhà phát triển phần mềm trải nghiệm và liên tục tung ra các tính năng mới để tăng cường tự động hóa và khuyến khích sự hợp tác nhiều hơn nữa giữa các nhóm phát triển — với một trong những tính năng đó là Trang GitHub.
+
+            GitHub Pages là một tính năng của GitHub cho phép lưu trữ các trang web tĩnh từ kho GitHub và làm cho chúng có sẵn công khai hoặc thậm chí có thể truy cập riêng tư trong nhóm và tổ chức. Từ trang web cá nhân và danh mục đầu tư đến tài liệu của dự án, GitHub Pages có thể khởi chạy các trang web trong vài phút. 
+
+            GitHub Pages là 1 công cụ tuyệt vời để tạo 1 trang web công cộng , bất kì ai cũng có thể truy cập. chỉ cần đẩy mã nguồn của trang web lên kho chứa GitHub, sau đó cấu hình GitHub Pages, và trang web sẽ được tạo ra với URL dạng username.github.io.
+            <br />
+            Quá trình cơ bản để sử dụng GitHub Pages bao gồm:
+            <ul>
+                <li>Tạo một repository trên GitHub (thường sẽ đặt tên là username.github.io).</li>
+                <li>Đẩy mã nguồn của trang web (HTML, CSS, JavaScript) lên repository đó.</li>
+                <li>Cấu hình GitHub Pages trong phần Settings của repository để trang web được triển khai.</li>
+            </ul>
+        </p>
+          <p><strong>2. Fire base </strong>
+            <figure>
+                <img src="images/hinh1,6.png" alt="Hình 1.6" />
+                <figcaption>Hình 1.6. Công Nghệ FireBase</figcaption>
+              </figure>
+              Firebase là một nền tảng phát triển ứng dụng di động và web do Google phát triển, cung cấp một bộ công cụ và dịch vụ hỗ trợ việc xây dựng và triển khai các ứng dụng. Firebase giúp các nhà phát triển tạo ra các ứng dụng mạnh mẽ, dễ dàng, và nhanh chóng mà không cần phải xây dựng từ đầu các phần cơ bản như cơ sở dữ liệu, xác thực người dùng, hoặc thông báo đẩy. Hiện nay, Firebase có hơn 20 dịch vụ khác nhau để hỗ trợ các nhà phát triển ứng dụng web và di động. Các dịch vụ này có thể được chia thành ba nhóm chính: Build, Release & Monitor và Engage. Mỗi nhóm sản phẩm bao gồm nhiều công cụ và dịch vụ khác nhau để giải quyết các thách thức và nhu cầu phổ biến trong quá trình phát triển ứng dụng.
+                Nhóm sản phẩm Build có thể tăng tốc độ phát triển ứng dụng với cơ sở hạ tầng backend được quản lý hoàn toàn. Firebase cung cấp các giải pháp như:
+                <Ul>
+                    <li>Cloud Firestore: Một cơ sở dữ liệu NoSQL đám mây có thể mở rộng để lưu trữ và truy vấn dữ liệu cho ứng dụng.</li>
+                    <li>Authentication: Một dịch vụ xác thực người dùng hỗ trợ nhiều phương thức đăng nhập khác nhau, như email, mật khẩu, số điện thoại, Google, Facebook, Twitter...</li>
+                    <li>Extensions: Những gói mã nguồn mở được đóng gói sẵn để tự động hóa các tác vụ phát triển thông thường, như đồng bộ hóa dữ liệu giữa Cloud Firestore và BigQuery, tích hợp với Algolia để tìm kiếm, gửi email khi có sự kiện xảy ra, xử lý thanh toán với Stripe...</li>
+                </Ul>
+                Nhóm sản phẩm Release & Monitor giúp bạn cải thiện chất lượng ứng dụng trong thời gian ngắn với ít công sức hơn. Từ đó có thể đơn giản hóa quá trình kiểm tra, phân loại và khắc phục sự cố. Hoặc có thể phát hành tính năng mới một cách tự tin và theo dõi hiệu suất cũng như tính ổn định của ứng dụng. Firebase có thể cung cấp các giải pháp như:
+                <ul>
+                    <li>Crashlytics: Một dịch vụ báo cáo sự cố giúp bạn xác định, ưu tiên và khắc phục các lỗi gây ra sự cố trong ứng dụng.</li>
+                    <li>Performance Monitoring: Một dịch vụ giám sát hiệu suất đo lường và cải thiện hiệu suất của ứng dụng như thời gian tải ứng dụng, thời gian phản hồi của mạng, tiêu thụ pin và nhiều hơn nữa.</li>
+                    <li>Firebase Analytic: Một dịch vụ phân tích hành vi người khác với sản phẩm.</li>
+                </ul> 
+                Nhóm sản phẩm Engage tăng cường sự tương tác của người dùng với các phân tích phong phú, thử nghiệm A/B và các chiến dịch tin nhắn.<br />Để hiểu rõ hơn về người dùng để hỗ trợ và giữ chân họ tốt hơn, có thể chạy các thí nghiệm để kiểm tra các ý tưởng và khám phá những thông tin mới. Firebase cung cấp các giải pháp như:
+            <ul>
+                <li>Remote Config: Một dịch vụ cho phép thay đổi hành vi và giao diện của ứng dụng mà không cần phải phát hành phiên bản mới.</li>
+                <li>Cloud Messaging: Một dịch vụ cho phép gửi tin nhắn và thông báo đẩy cho người dùng của, như thông báo về các sự kiện, khuyến mãi, cập nhật tin tức,…</li>
+                <li>A/B Testing: Một dịch vụ cho phép chạy các thí nghiệm để so sánh hiệu quả của các phiên bản khác nhau của ứng dụng, như màu sắc, văn bản, tính năng và nhiều hơn nữa.</li>
+            </ul>
+            Fire base tương tác tốt với những ứng dụng cần đồng bộ dữ liệu thời gian thực giữa các thiết bị hoặc người dùng như định vị xe máy.Firebase Realtime Database cho phép lưu trữ và truyền tải dữ liệu nhanh chóng và an toàn qua các kết nối SSL.
+        </p>
+        <h3>1.3. KẾT LUẬN</h3>
+            <p>Nhóm em đã xây dựng được hệ thống trung tâm quản lý có khả năng quan sát được vị trí hiện tại của đối tượng. Ngoài các tính năng ban đầu, có khả năng tích hợp nhiều ứng dụng khác nhau. Thông qua chương 1, nhóm em đã tổng hợp được khái quát về hệ thống định vị toàn cầu và mục đích sử dụng, ứng dụng, thông số kĩ thuật và công nghệ IOT đối với GPS. Từ đó nhóm em cũng đã thu thập được lượng lớn kiến thức về hệ thống định vị toàn cầu cũng như đã hiểu sâu hơn về hệ thống định vị xe máy.</p>
+        </div>
+      </section>
+
+      <!-- Chương 2 -->
+      <section id="chuong2">
+        <h2>Chương 2: Lựa Chọn Cấu Trúc Phần Cứng Và Phần Mềm Của Hệ Thống Định Vị Gps Xe Máy</h2>
+        <div class="product">
+          <h3>2.1. Phần Cứng Của Hệ Thống Định Vị Xe Máy</h3>
+          <figure>
+            <img src="images/hinh2,1.png" alt="Hình 2.1" />
+            <figcaption>Hình 2.1. Tổng Quan Về Phần Cứng Của Hệ Thống Định Vị GPS</figcaption>
+          </figure>
+          <h4>2.1.1. Trung Tâm Xử Lý (CPU)</h4>
+          <figure>
+            <img src="images/hinh2,2.jpg" alt="Hình 2.2" />
+            <figcaption>Hình 2.2 ESP32 NodeMCU LuaNode32 </figcaption>
+          </figure>
+          <p>
+            Mô Tả:
+          </p>
+          <p>Trong Hệ Thống Định Vị Gps Nhóm Em Lựa Chọn :
+            Kit RF thu phát Wifi ESP32 NodeMCU LuaNode32 được phát triển trên nền module trung tâm là ESP32 với công nghệ Wifi, BLE và nhân ARM SoC tích hợp mới nhất hiện nay, kit có thiết kế phần cứng, firmware và cách sử dụng tương tự Kit NodeMCU ESP8266, với ưu điểm là cách sử dụng dễ dàng, ra chân đầy đủ. Mạch WiFi này là sự lựa chọn hàng đầu trong các nghiên cứu, ứng dụng về Wifi, BLE, IoT và điều khiển, thu thập dữ liệu qua mạng.
+            </p>
+          <p>Đặc Điểm:
+            <ul>
+                <li>Khối lượng nhỏ, dễ dàng ứng dụng vào các sản phẩm khác</li>
+                <li>Chức năng mạnh mẽ với giao thức LWIP, Freertos</li>
+                <li>Hỗ trợ ba chế độ: AP, STA và AP + STA</li>
+                <li>Hỗ trợ chương trình Lua, dễ dàng phát triển</li>
+            </ul>
+         </p>
+          <p> Ứng dụng:</p>
+          <ul>
+            <li>Tự động hóa nhà thông minh (điều khiển ánh sáng, thiết bị gia dụng, hệ thống an ninh, giám sát môi trường). </li>
+            <li>IoT và công nghiệp (thu thập và truyền dữ liệu, điều khiển từ xa, giám sát và quản lý năng lượng, nông nghiệp thông minh). </li>
+            <li>Các ứng dụng khác (thiết bị đeo, robot và tự động hóa, thiết bị âm thanh, thiết bị giáo dục và nghiên cứu).</li>
+          </ul>
+          <p>Mục đích:</p>
+          <p>ESP32 là một bộ vi điều khiển mạnh mẽ và linh hoạt, đóng vai trò trung tâm trong mạch định vị GPS. Nó giúp xử lý dữ liệu GPS, truyền tải thông tin vị trí và xây dựng các ứng dụng định vị đa dạng trong hệ thống định vị.</p>
+          <h4>2.1.2. Mạch Định Vị Toàn Cầu ( GPS)</h4>
+          <figure>
+            <img src="images/hinh2,3.jpg" alt="Hình 2.3" />
+            <figcaption>Hình 2.3 ESP32 NodeMCU LuaNode32 </figcaption>
+          </figure>
+          <p>Mô tả: </p>
+          <p>Module NEO-8M GPS là module định vị toàn cầu sử dụng hệ thống vệ tinh GPS của Mỹ. Module GPS NEO-8M cho tốc độ xác định vị trí nhanh và chính xác, có nhiều mức năng lượng hoạt động, phù hợp với các ứng dụng chạy pin</p>
+          <p>Thông số kĩ thuật:</p>
+          <p>- Nguồn hoạt động: 3.3-5.5V (Nên sử dụng ở mức 3.3V)</p>
+          <p>- Dòng hoạt động bình thường: 50 mA</p>
+          <p>- Dòng hoạt động ở trạng thái tiết kiệm: 30 mA</p>
+          <p>- Giao tiếp UART/TTL (Để sử dụng giao tiếp UART bạn có thể sử dụng module UART TTL CP2102)</p>
+          <p>- Baud rate: Gồm nhiều mức khác nhau 1200, 2400, 4800, 19200, 38400, 9600 (mặc định), 57600, 115200,…</p>
+          <p>- Kích cỡ module : 39×25.5mm</p>
+          <p>Ứng dụng:</p>
+          <p>- Xác định tọa độ (kinh tuyến, vĩ tuyến) hiện tại của module trên bề mặt trái đất với sai số nhỏ nhất < 5m.</p>
+          <p>- Xác định thời gian quốc tế được cấp bởi đồng hồ vệ tinh gửi về. Từ đó bạn cũng có thể suy ra thời gian đồng hồ nơi ở của bạn theo tắc trừ múi giờ</p>
+          <p>- Chỉ cần 3 vệ tinh là bạn có thể xác định được tọa độ, chỉ cần 4 vệ tinh là bạn có thể xác định được độ cao hiện tại so với mực nước biển.</p>
+          <p>- Có thể tính toán ra tốc độ di chuyển, hướng di chuyển của vật thể được gắn module GPS.</p>
+          <p>- Giải các bài toán về tính toán giữa 2 điểm bất kì, tính diện tích ở một không gian cực kì rộng lớn </p>
+      <h4>2.1.3 Hệ Thống Cung Cấp Năng Lượng </h4>
+      <figure>
+        <img src="images/hinh2,4.png" alt="Hình 2.4" />
+        <figcaption>Hình 2.4. Pin Li-Po 955465</figcaption>
+      </figure>
+      <p>Thông số kỹ thuật :
+        <ul>
+          <li>Cell pin, có mạch bảo vệ loại 3 dây (NTC) </li>
+          <li>Kích thước: 9.5 x 54 x 65 (mm) </li>
+          <li>Dung lượng pin: 5000mAh Điện thế ra (voltage). 3.7 V. </li>
+          <li>Điện áp sạc: 4.2V Trọng lượng: ~75 g </li>
+          <li>Thời gian sạc: 0.5C (tiêu chuẩn) / 1C (sạc nhanh) </li>
+          <li>Dòng sạc tối đa: 1C Dòng xả liên tục: 0.5C </li>
+          <li>Dòng xả tối đa: 1C Điện áp cắt: 2.7V</li>
+        </ul>
+      </p>
+      <p>Ứng dụng:</p>
+      <p>Dùng cấp nguồn cho các thiết bị điện tử như, thiết bị định vị vị GPS, Esp32, và các thiết bị điện tử khác...</p>
+      <h4>2.1.3 Anten </h4>
+      <figure>
+        <img src="images/hinh2,5.jpg" alt="Hình 2.5" />
+        <figcaption>Hình 2.5. Gps Antena</figcaption>
+      </figure>
+      <p>Thông số kĩ thuật:
+        <ul>
+          <li>Tần số hoạt động: L1 (1575,42 MHz, ± 2 MHz)</li>
+          <li>Trở kháng: 50Ω</li>
+          <li>VSWR: 1.5 1575,42 MHz điển hình</li>
+          <li>Phân cực: RHCP</li>
+          <li>Băng thông: ± 5 MHz</li>
+          <li>Đạt được: ≥25dB   </li>
+          <li>Hệ số nhiễu: ≤1,5dB</li>
+          <li>Yêu cầu công suất: 3.0 ± 0.3VDC; 5,0 ± 0,5VDC 3,3 ± 0,3VDC</li>
+          <li>Tiêu thụ điện năng: 15mA, 3Vdc (điển hình)</li>
+          <li>Loại bỏ nhiễu: 20dB (f0 ± 140 MHz) </li>
+          <li>Kích thước: 46 × 39 × 13,5mm (G203A)</li>
+          <li>Vật liệu radome: nhựa ASA    </li>
+          <li>Chiều dài cáp: 3m.</li>
+          <li>Kiểu kết nối: SMA Nam.</li>
+          <li>Gắn cố định: Từ tính cơ sở</li>
+          <li>Màu vỏ: Đen</li>
+          <li>Gói Shell: Chống nước và chống bụi</li>
+          <li>Nhiệt độ lưu trữ: -40oC đến + 85oC</li>
+          <li>Độ ẩm: 100%</li>
+        </ul>
+      </p>
+      <p>Ứng dụng :
+        <ul>
+          <li>Tăng tính chính xác cho hệ thống có độ phủ sóng cao bất chấp thời tiết.</li>
+          <li>Bền bị chịu được ở mọi điều kiện thời tiết xấu bảo đảm tín hiệu cho hệ thống.</li>
+        </ul>
+      </p>
+      <h3>2.2. Phần mềm Hệ Thống Định Vị GPS Cho Xe Máy:</h3>
+      <p>Mô tả:</p>
+      <p>Định vị vị trí của Xe ( Vật) thông qua GPS , bộ định vị sẽ gửi vị trí khoảng cách hiện tại theo thời gian thực lên FireBase với sai sót trong bán kính 1m và hiển thị vị trị ,khoảng cách, tốc độ ,thời gian .</p>
+      <p>Web : sẽ nhận tín hiệu từ GPS hiển thị cho người dùng vị trí, khoảng cách, tốc độ hiện tại theo thời gian thực trên bản đồ vệ tinh.</p>
+      <figure>
+        <img src="images/hinh2,6.png" alt="Hình 2.6" />
+        <figcaption>Hình 2.6.Tổng Quan Về Phần Mềm Của Hệ Thống Định Vị GPS</figcaption>
+      </figure>
+      <h4>2.2.1. Visual Studio Code (VS Code)</h4>
+      <figure>
+        <img src="images/hinh2,7.jpg" alt="Hình 2.7" />
+        <figcaption>Hình 2.7. Phần Mền Visual Studio Code</figcaption>
+      </figure>
+      <p>
+        <ul>
+        <li>Hiệu suất cao, nhẹ nhàng: Chạy mượt trên nhiều máy tính.</li>
+        <li>Đa nền tảng: Hoạt động trên Windows, macOS, Linux.</li>
+        <li>Đa ngôn ngữ: Hỗ trợ nhiều ngôn ngữ lập trình phổ biến.</li>
+        <li>Tiện ích mở rộng phong phú: Tùy chỉnh theo nhu cầu với kho tiện ích khổng lồ.</li>
+        <li>Tích hợp Git: Quản lý mã nguồn dễ dàng.</li>
+        <li>Gỡ lỗi mạnh mẽ: Tìm và sửa lỗi hiệu quả.</li>
+        <li>Giao diện thân thiện: Dễ sử dụng, tùy chỉnh cao.</li>
+        <li>Tạo bản đồ hiển thị GPS giao diện thành viên trong quá trình phát triển thiết bị</li>
+      </ul>
+      </p>
+        <p>Trong Hệ Thống Định Vị GPS Nhóm Em Sử Dụng Phần Mềm Để: 
+      <ul>
+        <li>Tạo bản đồ hiển thị GPS giao diện thành viên phát triển hệ thống hiển thị cho người dùng</li>
+      </ul>
+    </p>
+    <figure>
+      <img src="images/hinh2,8.png" alt="Hình 2.8" />
+      <figcaption>Hình 2.8.Chương Trình Hệ Thống Web</figcaption>
+    </figure>
+    <h4>2.2.2. Arduino IDE:</h4>
+    <figure>
+      <img src="images/hinh2,9.png" alt="Hình 2.9" />
+      <figcaption>Hình 2.9.Phần Mềm ARDUINO</figcaption>
+    </figure>
+    <p>
+      <ul>
+    </p>
+    <li>Dễ học, dễ dùng: Giao diện trực quan, ngôn ngữ đơn giản hóa.</li>
+    <li>Mã nguồn mở, miễn phí: Tự do sử dụng, chỉnh sửa.</li>
+    <li>Đa nền tảng: Chạy trên Windows, macOS, Linux.</li>
+    <li>Cộng đồng lớn mạnh: Hỗ trợ nhiệt tình, nhiều tài liệu.</li>
+    <li>Thư viện phong phú: Kết nối thiết bị dễ dàng.</li>
+    <li>Hỗ trợ nhiều bo mạch: Lựa chọn theo nhu cầu.</li>
+    <li>Nạp chức năng các cảnh bảo tuỳ chỉnh lại hoạt động thiết bị.</li>
+  </ul>
+            </p>
+    <p>Trong Hệ Thống Định Vị GPS Nhóm Em Sử Dụng Phần Mềm Để: </p>
+      <p>Xây dưng Chương Trình Thiết bị Gps</p>
+      <figure>
+        <img src="images/hinh2,10.png" alt="Hình 2.10" />
+        <figcaption>Hình 2.10.Giao Diện Lập Trình Chương Trình Thiết Bị</figcaption>
+      </figure>
+      <h4>2.2.3. Proteus:</h4>
+      <figure>
+        <img src="images/hinh2,11.png" alt="Hình 2.11" />
+        <figcaption>Hình 2.11.Phần Mềm Proteus</figcaption>
+      </figure>
+      <p>
+        <ul>
+      <li>Mô phỏng chính xác: Kiểm tra mạch trước khi chế tạo, giảm rủi ro.</li>
+      <li>Thư viện linh kiện lớn: Đa dạng linh kiện, dễ dàng tìm kiếm.</li>
+      <li>Thiết kế PCB chuyên nghiệp: Tạo mạch in chất lượng cao.</li>
+      <li>Mô phỏng vi điều khiển đa dạng: Kiểm tra chương trình trước khi nạp.</li>
+      <li>Giao diện trực quan: Dễ sử dụng, có mô hình 3D.</li>
+      <li>Tiết kiệm thời gian, chi phí: Mô phỏng thay thế chế tạo thực tế</li>
+      <li>Vẽ mạnh thiết kế thiết bị trong không gian 2D</li>
+    </ul>
+  </p>
+      <p>Trong Hệ Thống Định Vị GPS Nhóm Em Sử Dụng Phần Mềm Để: </ul>
+    <p>Vẽ mạch thiết kế thiết phần cứng và thử nghiệm mô phổng trong không gian 2D.</ul>
+    <figure>
+      <img src="images/hinh2,12.png" alt="Hình 2.12" />
+      <figcaption>Hình 2.12.Sơ đồ mạch điện </figcaption>
+    </figure>
+    <h4>2.2.4. Inventer:</h4>
+    <figure>
+      <img src="images/hinh2,13.png" alt="Hình 2.13" />
+      <figcaption>Hình 2.13. Phần Mềm Inventer</figcaption>
+    </figure>
+    <p>
+      <ul>
+    <li>Mô hình hóa 3D chuyên nghiệp: </li>
+    <li>Giúp tạo ra các mô hình chi tiết và chính xác.</li>
+    <li>Mô phỏng và phân tích: </li>
+    <li>Kiểm tra hiệu suất sản phẩm trước khi sản xuất.</li>
+    <li>Tạo bản vẽ 2D: </li>
+    <li>Đơn giản hóa quá trình sản xuất.</li>
+    <li>Tích hợp tốt: </li>
+    <li>Tương thích với các phần mềm khác của Autodesk.</li>
+    <li>Thiết kế lại hình dáng thiết bị tăng tính thâm mĩ.</li>  
+  </ul>
+  </p>
+  <p>Trong Hệ Thống Định Vị GPS Nhóm Em Sử Dụng Phần Mềm Để: </p>
+    <p>Thiết kế hình dạng thiết bị GPS trong không gian 3D giúp mô phỏng lại kích thước , cấu tạo hình dạng thiết bị</p>
+    <figure>
+      <img src="images/hinh2,14.png" alt="Hình 2.14" />
+      <figcaption>Hình 2.14.Cấu Tạo Thiết Bị Trong Môi Trường 3D</figcaption>
+    </figure>
+    <h3>2.3. Kết Luận:</h3>
+    <p>
+      <ul>
+        <li>Hệ thống định vị vị trí sử dụng phần cứng mạnh mẽ và các phần mềm hỗ trợ đa dạng, đáp ứng được yêu cầu về độ chính xác, hiệu suất và tính linh hoạt của hệ thống định vị GPS .</li>
+        <li>Các ưu điểm của từng thành phần giúp hệ thống hoạt động hiệu quả trong việc theo dõi và định vị vị trí theo thời gian thực.</li>
+        <li>Việc sử dụng tín hiệu GPS cơ bản là miễn phí cho người dung.</li>
+        <li>GPS hoạt động ổn định trong mọi điều kiện thời tiết, bất kể mưa, gió, tuyết hay sương mù.</li>
+        <li>GPS hoạt động trên toàn cầu, cho phép người dùng xác định vị trí của mình ở bất kỳ đâu trên Trái Đất, miễn là có tín hiệu vệ tinh.</li>
+      </ul>
+    </p>
+  </div>
+      </section>
+      <!-- Chương 3 -->
+    <section id="chuong3">
+      <h2>Chương 3: Các Bài Toán Công Nghệ Sử Dụng Trong Hệ Thống</h2>
+      <div class="product">
+        <h3>3.1. Sơ Đồ Khối</h3>
+      <figure>
+        <img src="images/hinh3,1.jpg" alt="Hình 3.1" /> 
+        <figcaption>Hình 3.1. Sơ Đồ Khối</figcaption>
+      </figure>
+      <p> <strong>Sơ Đồ Khối này Hoạt Động:  </strong> </p>
+      <p>Nguồn nuôi từ pin Li-Po cung cấp điện áp 3.7V cho toàn bộ hệ thống, đảm bảo hoạt động ổn định cho cả ESP32 và mô-đun GPS NEO-M8N. Mô-đun GPS NEO-M8N thu thập dữ liệu vị trí (tọa độ kinh độ, vĩ độ) và thời gian thông qua tín hiệu vệ tinh, sau đó truyền dữ liệu này đến ESP32 qua giao tiếp nối tiếp. ESP32, với khả năng xử lý dữ liệu và kết nối mạng, nhận thông tin từ GPS, thực hiện xử lý và chuẩn bị dữ liệu để gửi đi. ESP32 sử dụng giao thức HTTP để gửi dữ liệu GPS (bao gồm tọa độ và thời gian) lên Firebase nhằm lưu trữ lâu dài. Sau khi dữ liệu được lưu trữ trên Firebase, giao diện web của hệ thống sẽ truy cập và lấy dữ liệu từ cơ sở dữ liệu này để hiển thị thông tin vị trí, thời gian và trạng thái kết nối. Giao diện web cũng có khả năng thông báo khi xảy ra sự cố, chẳng hạn như không lấy được dữ liệu GPS hoặc mất kết nối với Firebase.</p>
+    <h3>3.2. Bản Vẽ </h3>
+    <h4>3.2.1 Bản Vẽ 3D</h4>
+      <h5>3.2.1.1. Hộp Và Nắp Hộp-3D</h5>
+    <figure>
+    <img src="images\hinh3,2.png" alt="Hình 3.2" />
+    <figcaption>Hình 3.2. Bản Vẽ 3D Hộp Và Nắp Hộp</figcaption>
+    </figure>
+    <h5>3.2.1.2. Esp32-3D</h5>
+    <figure>
+      <img src="images\hinh3,3.png" alt="Hình 3.3" />
+      <figcaption>Hình 3.3. Bản Vẽ 3D Esp32 </figcaption>
+      </figure>
+      <h5>3.2.1.3. Neo Gps M8N-3D</h5>
+      <figure>
+      <img src="images\hinh3,4.png" alt="Hình 3.4" />
+      <figcaption>Hình 3.4 Bản Vẽ 3D Gps Neo M8n</figcaption>
+      </figure>
+      <h5>3.2.1.4. Pin Li-Po-3D</h5>
+      <figure>
+      <img src="images\hinh3,5.png" alt="Hình 3.5" />
+      <figcaption>Hình 3.5. Bản Vẽ 3D Pin Li-Po</figcaption>
+      </figure>
+      <h4>3.2.2. Bản Vẽ 2D</h4>
+      <h5>3.2.2.1. Hộp Và Nắp Hộp-2D</h5>
+      <figure>
+      <img src="images/hinh3,6.png" alt="Hình 3.6" />
+      <figcaption>Hình 3.6. Bản Vẽ 2D Hộp </figcaption>
+      </figure>
+      <figure>
+      <img src="images/hinh3,7.png" alt="Hình 3.7" />
+      <figcaption>Hình 3.7. Bản Vẽ 2D Nắp Hộp</figcaption>
+      </figure>
+      <h5>3.2.2.2. Esp32-2D</h5>
+      <figure>
+        <img src="images/hinh3,8.png" alt="Hình 3.8" />
+        <figcaption>Hình 3.8.Cấu Hình 2D Esp32</figcaption>
+        </figure>
+        <figure>
+          <img src="images/hinh3,9.jpg" alt="Hình 3.9" />
+          <figcaption>Hình 3.9.Kích Thước 2D Esp32</figcaption>
+          </figure>
+      <h5>3.2.2.3. Neo Gps M8N-2D</h5>
+      <figure>
+        <img src="images/hinh3,10.png" alt="Hình 3.10" />
+        <figcaption>Hình 3.10. Cấu Hình Chân 2D GPS Neo M8N</figcaption>
+        </figure>
+      <figure>
+      <img src="images/hinh3,11.jpg" alt="Hình 3.11" />
+      <figcaption>Hình 3.11. Kích Thước 2D GPS Neo M8N</figcaption>
+      </figure>
+      <h5>3.2.2.4. Pin Li-Po-2D</h5>
+      <figure>
+      <img src="images/hinh3,12.png" alt="Hình 3.12" />
+      <figcaption>Hình 3.10. Bản Vẽ 2D Pin LI-Po</figcaption>
+      </figure>
+      <h3>3.3. Lưu Đồ Thuật Toán </h3>
+      <figure>
+      <img src="images/hinh3,13.png" alt="Hình 3.13" />
+      <figcaption>Hình 3.13. Lưu Đồ Thuật Toán</figcaption>
+      </figure>
+      <div class="wrapper">
+          <table class="table1">
+              <tr>
+                  <th>STT</th>
+                  <th>Tên hàm</th>
+                  <th>Chú thích</th>
+              </tr>
+              <tr>
+                  <td>1</td>
+                  <td>gps.encode(gpsSerial.read())</td>
+                  <td>Hàm đọc giá trị cảm biến</td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>gps.location.isValid()</td>
+                  <td>Địa chỉ GPS hợp lệ</td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>gps.location.isUpdated()</td>
+                  <td>Địa chỉ GPS đã được cập nhật</td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>gps.satellites.value()</td>
+                  <td>Số vệ tinh</td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>MIN_SATELLITES</td>
+                  <td>Số vệ tinh tối thiểu</td>
+              </tr>
+              <tr>
+                  <td>6</td>
+                  <td>gps.hdop.hdop()</td>
+                  <td>Chỉ số HDOP của GPS</td>
+              </tr>
+              <tr>
+                  <td>7</td>
+                  <td>MAX_HDOP</td>
+                  <td>HDOP tối đa</td>
+              </tr>
+              <tr>
+                  <td>8</td>
+                  <td>gps.location.age()</td>
+                  <td>Thời gian GPS cập nhật</td>
+              </tr>
+              <tr>
+                  <td>9</td>
+                  <td>MAX_DATA_AGE</td>
+                  <td>Thời gian tối đa GPS cập nhật</td>
+              </tr>
+              <tr>
+                  <td>10</td>
+                  <td>updateLastValidGPS()</td>
+                  <td>Hàm cập nhật địa chỉ hợp lệ cuối cùng của GPS</td>
+              </tr>
+              <tr>
+                  <td>11</td>
+                  <td>printGPSDebugInfo()</td>
+                  <td>Hàm xuất ra địa chỉ lỗi của GPS</td>
+              </tr>
+              <tr>
+                  <td>12</td>
+                  <td>distance</td>
+                  <td>Khoảng cách</td>
+              </tr>
+              <tr>
+                  <td>13</td>
+                  <td>MIN_DISTANCE</td>
+                  <td>Khoảng cách tối thiểu</td>
+              </tr>
+              <tr>
+                  <td>14</td>
+                  <td>lastSentGPS.isValid</td>
+                  <td>Địa chỉ GPS cuối cùng được gửi hợp lệ</td>
+              </tr>
+              <tr>
+                  <td>15</td>
+                  <td>WiFi.status() == WL_CONNECTED</td>
+                  <td>WiFi đã được kết nối</td>
+              </tr>
+              <tr>
+                  <td>16</td>
+                  <td>pushGPSDataToFirebase()</td>
+                  <td>Đẩy dữ liệu lên Firebase</td>
+              </tr>
+              <tr>
+                  <td>17</td>
+                  <td>saveToSPIFFS()</td>
+                  <td>Lưu dữ liệu vào SPIFFS</td>
+              </tr>
+              <tr>
+                  <td>18</td>
+                  <td>connectToWiFi()</td>
+                  <td>Hàm kết nối WiFi</td>
+              </tr>
+              <tr>
+                  <td>19</td>
+                  <td>syncOfflineData()</td>
+                  <td>Lưu dữ liệu offline</td>
+              </tr>
+          </table> 
+        </div>
+         <p class="caption">Bảng 1. Định Nghĩa Các Hàm Sử Dụng Trong Chương Trình Thiết Bị GPS</p>
+
+         <h3>3.4. Chương Trình Thiết Bị Gps :</h3>
+         <p>Chương Trình Cập Nhập Sau Vì Lý Do Bảo Mật</p>
+         <h3>3.5. Xây Dựng Hệ Thống Định Vị Gps Xe Máy</h3>  
+         <h4>3.5.1. Đăng Nhập, Đăng Ký:</h4>
+         <p>Bước 1: Người dùng truy cập trang web https://hieu081.github.io/gps/login.html.</p>
+         <p>Bước 2: Nếu chưa có tài khoản, người dùng chọn “Đăng ký” và điền các thông tin cần thiết (Email, Mật khẩu, Xác nhận mật khẩu).</p>
+         <figure>
+         <img src="images/hinh3,14.png" alt="Hình 3.14" />
+         <figcaption>Hình 3.14. Giao Diện Đăng Ký  </figcaption>
+         </figure>
+         <p>Bước 3:Sau khi nhập đầy đủ thì Hệ Thống sẽ gửi Link Xác nhận tới gmail của người dùng . Người dùng truy cập gmail đã đưang ký để click link xác thực đăng ký </p>
+         <figure>
+         <img src="images/hinh3,15.png" alt="Hình 3.15" />
+         <figcaption>Hình 3.15. Xác Minh Email  </figcaption>
+         </figure>
+         <p>- Trường hợp có Tài khoản rồi thì sẽ đăng nhập dựa trên Email và mật khẩu đã đăng ký. Hoặc người dùng có thể đăng nhập bằng tài khoản google </p>
+         <figure>
+         <img src="images/hinh3,16.png" alt="Hình 3.16" />
+         <figcaption>Hình 3.16. Giao Diện Đăng Nhập </figcaption>
+         </figure>
+         <h4>3.5.2. Bản đồ điện tử:</h4>
+         <figure>
+         <img src="images/hinh3,17.png" alt="Hình 3.17" />
+         <figcaption>Hình 3.17. Giao Diện Bản Đồ Điện Tử</figcaption>
+         </figure>
+         <p>1. Thông tin Thiết bị </p>
+         <p style="margin-left: 20px;">-	Vị Trí </p>
+         <p style="margin-left: 20px;">-	Toạ độ</p>
+         <p style="margin-left: 20px;">-	Ngày </p>
+         <p style="margin-left: 20px;">-	Giờ</p>
+         <p style="margin-left: 20px;">-	Khoảng Cách</p>
+         <figure>
+         <img src="images/hinh3,18.png" alt="Hình 3.18" />
+         <figcaption>Hình 3.18 Thông Tin Thiết Bị</figcaption>
+         </figure>
+         <p>2.	Thông tin Tuyến Đường </p>
+         <p style="margin-left: 20px;">-	Khoảng Cách</p>
+         <p style="margin-left: 20px;">-	Thời gian </p>
+         <p style="margin-left: 20px;">-	Và hướng dẫn di chuyển </p>
+         <figure>
+         <img src="images/hinh3,19.png" alt="Hình 3.19" />
+         <figcaption>Hình 3.19. Thông Tin Tuyến Đường Và Chỉ dẫn</figcaption>
+         </figure>
+         <P>3.	Các Chức Năng</P>
+         <figure>
+         <img src="images/hinh3,20.png" alt="Hình 3.20" />
+         <figcaption>Hinh 3.18.  Các Chức Năng</figcaption>
+         </figure>
+         <P>3.1.	Chức Năng Chuyển Đổi Chế Độ Vệ Tinh</P>
+         <p style="margin-left: 20px;">-	Chuyển Đổi Từ Lớp Bản Đồ Openstreetmap</P>
+         <figure>
+         <img src="images/hinh3,21.png" alt="Hình 3.21" />
+         <figcaption>Hinh 3.21. Giao Diện Bản Đồ Openstreetmap</figcaption>
+         </figure>
+         <p style="margin-left: 20px;">-	Có Thể Sang Lớp Bản Đồ Vệ Tinh Google Map</P>
+         <figure>
+         <img src="images/hinh3,22.png" alt="Hình 3.22" />
+         <figcaption>Hinh 3.22. Giao Diện Bản Đồ Google Map</figcaption>
+         </figure>
+         <P>3.2.	Chức Năng Vị Trí Của Tôi </P>
+         <P style="margin-left: 20px;">-	Cập Nhập Vị Trí Người Dùng </P>
+         <figure>
+         <img src="images/hinh3,23.png" alt="Hình 3.23" />
+         <figcaption> Hình 3.23. Gia Diện Vị Trí Người Dùng</figcaption>
+         </figure>
+         <P>3.3.	Chức Năng Vị Trí GPS </P>
+         <figure>
+         <img src="images/hinh3,24.png" alt="Hình 3.24" />
+         <figcaption>Hình 3.24. Giao Diện Vị Trí GPS</figcaption>
+         </figure>
+         <P>3.4.	Chức Năng Chỉ Đường</P>
+         <figure>
+         <img src="images/hinh3,25.png" alt="Hình 3.25" />
+         <figcaption>Hình 3.25. Giao Diện Chức Năng Chỉ Đường</figcaption>
+         </figure>
+         <P>-	Sẽ Hiển Thị Nét Chỉ Đường Từ Người Dùng Tới Vị Trí GPS</P>
+         <P>3.5.	Chức Năng Phát Lại Tuyến Đường </P>
+         <P>-	Sẽ phát lại tuyến đường mà gps đã cập nhập qua </P>
+         <P>3.6.	Chức Năng Xoá Lịch Sử</P>
+         <P>3.7.	Chức Năng Đăng Xuất</P>
+         <P>-	Sẽ Quay trở lại trang Đăng Nhập/ Đăng Ký</P>
+         <h3>3.6. Đánh Giá Hệ Thống </h3>
+         <h4>3.6.1 Đánh Giá Dựa Vào Địa Hình Bằng Phẳng</h4>
+         <figure>
+          <img src="images/bang2.jpg" alt="bang2" />
+          <figcaption>Bảng 2: Đánh Giá Sai Số Hệ Thống Định Vị GPS Theo Địa Hình Bằng Phẳng</figcaption>
+          </figure>
+          <h4>3.6.2 Đánh Giá Dựa Vào Địa Hình Cao Tầng</h4>
+          <figure>
+            <img src="images/bang3.jpg" alt="bang3" />
+            <figcaption>Bảng 3: Đánh Giá Sai Số Hệ Thống Định Vị GPS Theo Địa Hình Cao Tầng</figcaption>
+            </figure>
+        <h4>3.6.3. Đánh Giá Dựa Vào Tốc Độ</h4>
+        <figure>
+          <img src="images/bang4.jpg" alt="bang4" />
+          <figcaption>Bảng 4: Đánh Giá Sai Số Hệ Thống Định Vị GPS Theo Tốc Độ</figcaption>
+          </figure>
+<!-- Kết luận -->
+<section id="ketluan">
+  <h2>Kết Luận Chung</h2>
+  <p>
+    Trong quá trình nghiên cứu và phát triển hệ thống định vị GPS cho xe máy, nhóm đã thu nhận được nhiều kinh nghiệm cũng như kiến thức quý báu về các công nghệ định vị, IoT và phát triển ứng dụng. Hệ thống được xây dựng dựa trên sự kết hợp hài hòa giữa phần cứng và phần mềm. Về phần cứng, nhóm đã lựa chọn các thành phần chủ chốt như vi điều khiển ESP32, module GPS NEO-8M, ăng-ten và nguồn Li-Po, đảm bảo khả năng thu tín hiệu GPS ổn định và cung cấp đủ năng lượng cho toàn bộ hệ thống. Về phần mềm, hệ thống được phát triển với sự hỗ trợ của các công cụ như Visual Studio Code, Arduino IDE, Proteus, Inventer và dịch vụ Firebase, giúp xử lý dữ liệu và hiển thị vị trí trên giao diện web một cách trực quan và hiệu quả.
+  </p>
+  <P>Qua quá trình thực nghiệm, hệ thống đã chứng minh được khả năng xác định vị trí theo thời gian thực với độ chính xác cao và hoạt động ổn định trong nhiều điều kiện địa hình khác nhau. Tuy nhiên, hệ thống vẫn gặp phải một số hạn chế nhất định, chủ yếu do các yếu tố môi trường và chất lượng tín hiệu GPS ảnh hưởng đến độ chính xác của việc định vị. Những hạn chế này mở ra hướng phát triển tiềm năng cho việc tích hợp thêm các cảm biến phụ trợ và cải tiến thuật toán định vị, ví dụ như ứng dụng công nghệ Differential GPS nhằm gia tăng độ chính xác trong mọi điều kiện hoạt động.</P>
+<p>Những kết quả đạt được không chỉ khẳng định tính khả thi của hệ thống định vị GPS dựa trên nền tảng IoT mà còn gợi mở cơ hội mở rộng ứng dụng trong các lĩnh vực quản lý giao thông, an ninh, cứu hộ và các ứng dụng công nghệ khác. Qua đó, hệ thống không chỉ đáp ứng nhu cầu định vị xe máy mà còn là nền tảng vững chắc để phát triển những giải pháp công nghệ tiên tiến phục vụ cho đời sống và các hoạt động kinh tế xã hội trong tương lai.</p>
+</section>
+<section>
+  <h2>Tài Liệu Tham Khảo</h2>
+  <P>
+      <ul>
+    <li>(2) GPS Satellite NASA</li>
+    <li>(3) “Commission awards major contracts to make Galileo operational early 2014”. 
+      May 18, 2012. Accessed June 26, 2010
+      </li>
+    <li>(4) Agnew, DC and Larson, KM. (2007). “Finding the repeat times of the GPS constellation”. GPS Solutions. Springer. 11 (1): 71–76. doi:10.1007/s10291-006-0038-4. This article from author's web site Archive 2008-02-16 at Wayback Machine, with minor correction</li>
+    <li> (5) Ferrari, P., Flammini, A., Rinaldi, S., Sisinni, E., Maffei, D., & Malara, M. (2018).
+      “Impact of quality of service on cloud based industrial IoT applications with OPC
+      UA”. Electronics, 7(7), 109
+      </li>
+    <li>(6) Lesi, V., Jakovljevic, Z., & Pajic, M. (2019, April). “Reliable industrial IoT-based
+      distributed automation”. In Proceedings of the International Conference on Internet
+      of Things Design and Implementation (pp. 94-105).
+      </li>
+    <li>(7) George Hardesty – GPS Antennas| IOT – Internet of thing</li>
+    <li>(8) “Commission awards major contracts to make Galileo operational early 2014”. January 7, 2010. Accessed April 19, 2010.</li>
+      <li>(9) Bùi Yên Tĩnh, Vũ Văn Đồng, Nguyễn Văn Đông. Xây dựng hệ thống định vị, dẫn đường và giám sát trực tuyến, 28/2/2022.</li>
+  </ul>
+  <ul>
+      <li>Agnew, D. C., & Larson, K. M. (2007). Finding the repeat times of the GPS constellation. <i>GPS Solutions</i>, 11(1), 71–76. https://doi.org/10.1007/s10291-006-0038-4</li>
+      <li>Bùi, Y. T., Vũ, V. Đ., & Nguyễn, V. Đ. (2022, February 28). Xây dựng hệ thống định vị, dẫn đường và giám sát trực tuyến.</li>
+    </ul>
+  </P>
+      </div>
+    </section>
+    <div id="imgModal" class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" alt="Phóng to ảnh" />
+    </div>
+    <script>
+      function toggleMenu() {
+        var menu = document.getElementById("nav-menu");
+        menu.classList.toggle("show");
+      }
+      function toggleControls() {
+        var controlsMenu = document.querySelector(".controls-menu");
+        controlsMenu.classList.toggle("show");
+      }
+      document.querySelectorAll(".controls-menu a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+      document.querySelectorAll("figure img").forEach(function (img) {
+        img.addEventListener("click", function () {
+          var modal = document.getElementById("imgModal");
+          var modalImg = document.getElementById("modalImage");
+          modal.style.display = "block";
+          modalImg.src = this.src;
+        });
+      });
+      function closeModal() {
+        document.getElementById("imgModal").style.display = "none";
+      }
+      document
+        .getElementById("imgModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+      // Hiển thị/nấp nút quay về đầu trang
+      window.onscroll = function () {
+        const backToTop = document.getElementById("backToTop");
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      };
+
+      // Cuộn lên đầu trang khi nhấn nút
+      document.getElementById("backToTop").onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+      // Xử lý chuyển chế độ tối/sáng
+      const modeToggle = document.querySelector(".mode-toggle");
+      const body = document.body;
+
+      function toggleDarkMode() {
+        body.classList.toggle("dark-mode");
+        const isDarkMode = body.classList.contains("dark-mode");
+        modeToggle.innerHTML = `<i class="fas fa-${
+          isDarkMode ? "moon" : "sun"
+        }"></i>`;
+        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+      }
+
+      // Khôi phục trạng thái từ localStorage
+      if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+
+      modeToggle.addEventListener("click", toggleDarkMode);
+    </script>
+  </body>
+</html>
